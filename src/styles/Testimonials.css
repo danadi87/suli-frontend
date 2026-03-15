@@ -1,0 +1,79 @@
+.testimonials {
+  background: var(--kombu);
+  padding: 8rem 4rem;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+.testimonials-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.testimonials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5rem;
+}
+.testimonials-header .section-title,
+.testimonials-header .section-label {
+  color: var(--tan) !important;
+}
+.testimonials-note {
+  font-size: 0.7rem;
+  color: rgba(207, 187, 153, 0.5);
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.testi-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 3rem;
+  transition:
+    background 0.4s,
+    border-color 0.4s;
+}
+.testi-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(207, 187, 153, 0.2);
+}
+.testi-quote-mark {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--moss);
+  line-height: 0.8;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+.testi-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(250, 247, 242, 0.85);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.testi-client {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+}
+.testi-name {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tan);
+}
+.testi-role {
+  font-size: 0.65rem;
+  color: rgba(207, 187, 153, 0.5);
+  margin-top: 0.3rem;
+  letter-spacing: 0.05em;
+}

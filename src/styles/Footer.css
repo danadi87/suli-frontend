@@ -1,0 +1,26 @@
+footer {
+  background: var(--noir);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-copy {
+  font-size: 0.6rem;
+  color: rgba(250, 247, 242, 0.25);
+  letter-spacing: 0.1em;
+}
+.footer-legal {
+  display: flex;
+  gap: 2rem;
+}
+.footer-legal a {
+  font-size: 0.6rem;
+  color: rgba(250, 247, 242, 0.25);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+.footer-legal a:hover {
+  color: var(--moss);
+}

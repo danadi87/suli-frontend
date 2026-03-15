@@ -1,0 +1,137 @@
+.services {
+  background: var(--cream);
+  padding: 8rem 4rem;
+  scroll-margin-top: 80px;
+}
+.services-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5rem;
+}
+.services-note {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--moss);
+  letter-spacing: 0.05em;
+  max-width: 260px;
+  text-align: right;
+  line-height: 1.8;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+.service-card {
+  background: var(--bone);
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transition: background 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--moss), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+.service-card:hover::after {
+  transform: scaleX(1);
+}
+.service-card:hover {
+  background: var(--cream);
+}
+.service-icon {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 0.5rem;
+}
+.service-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--kombu);
+}
+.service-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(17, 26, 25, 0.65);
+  flex: 1;
+}
+.service-rate {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--tan);
+  border-top: 1px solid rgba(207, 187, 153, 0.3);
+  padding-top: 1.2rem;
+  margin-top: auto;
+}
+.service-card.featured {
+  background: var(--kombu);
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
+}
+.featured-content {
+  padding: 3.5rem;
+}
+.featured-image {
+  background: linear-gradient(135deg, #2c341b, #354024, #889063);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.featured-image-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.5) 10px,
+    rgba(255, 255, 255, 0.5) 11px
+  );
+}
+.featured-image-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5rem;
+  font-weight: 300;
+  color: rgba(250, 247, 242, 0.15);
+  text-align: center;
+  position: relative;
+}
+.service-card.featured .service-name,
+.service-card.featured .service-icon {
+  color: var(--tan);
+}
+.service-card.featured .service-desc {
+  color: rgba(250, 247, 242, 0.65);
+}
+.service-card.featured .service-rate {
+  color: var(--moss);
+  border-color: rgba(136, 144, 99, 0.3);
+}
+.service-card.featured::after {
+  display: none;
+}

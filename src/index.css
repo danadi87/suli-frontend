@@ -1,0 +1,56 @@
+:root {
+  --cafe-noir: #4c3d19;
+  --kombu: #354024;
+  --moss: #889063;
+  --tan: #cfbb99;
+  --bone: #f0e8d8;
+  --noir: #111a19;
+  --cream: #faf7f2;
+  --gold: #b8964a;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  background: var(--cream);
+  color: var(--noir);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--moss);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--moss);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition:
+    transform 0.35s ease,
+    opacity 0.3s;
+  opacity: 0.5;
+  transform: translate(-14px, -14px);
+}

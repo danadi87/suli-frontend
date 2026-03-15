@@ -1,0 +1,91 @@
+.consult {
+  background: var(--cream);
+  padding: 8rem 4rem;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+.consult-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20vw;
+  font-weight: 300;
+  color: rgba(136, 144, 99, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  -webkit-user-select: none;
+}
+.consult-inner {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.consult-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--kombu);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+.consult-title em {
+  font-style: italic;
+  color: var(--moss);
+}
+.consult-text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 2;
+  color: rgba(17, 26, 25, 0.6);
+  margin-bottom: 3rem;
+}
+.consult-form {
+  display: flex;
+  gap: 0;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}
+.consult-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: var(--bone);
+  border: 1px solid rgba(207, 187, 153, 0.4);
+  border-right: none;
+  font-family: "Jost", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--kombu);
+  outline: none;
+  letter-spacing: 0.05em;
+}
+.consult-input::placeholder {
+  color: rgba(17, 26, 25, 0.3);
+}
+.consult-input:focus {
+  border-color: var(--moss);
+  background: var(--cream);
+}
+.consult-btn {
+  padding: 1rem 2rem;
+  background: var(--kombu);
+  color: var(--cream);
+  border: none;
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: background 0.3s;
+}
+.consult-btn:hover {
+  background: var(--moss);
+}
+.consult-privacy {
+  font-size: 0.65rem;
+  color: rgba(17, 26, 25, 0.35);
+  letter-spacing: 0.05em;
+}
