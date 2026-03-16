@@ -6,7 +6,7 @@ export default function LanguageSwitcher() {
   const { lang, setLang } = useLang();
 
   return (
-    <div className="lang-switch">
+    <div className="language-switcher">
       <button
         className={`lang-btn${lang === "en" ? " active" : ""}`}
         onClick={() => setLang("en")}

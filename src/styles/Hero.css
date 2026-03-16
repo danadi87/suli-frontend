@@ -2,9 +2,11 @@
   height: 100vh;
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   overflow: hidden;
   background: var(--kombu);
+  padding-top: 8rem;
+  box-sizing: border-box;
 }
 
 .hero-bg {
