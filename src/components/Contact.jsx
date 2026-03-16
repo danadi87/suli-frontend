@@ -1,65 +1,69 @@
-import React from "react";
+import { useState } from "react";
 import "../styles/Contact.css";
+import { useLang, t } from "../context/language.context.jsx";
 
-export function Contact() {
+export default function Contact() {
+  const { lang } = useLang();
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
+
+  const handleChange = (e) =>
+    setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+    setSent(true);
+    setForm({ name: "", email: "", message: "" });
+  };
+
   return (
     <section className="contact" id="contact">
       <div className="contact-inner">
         <div>
           <div className="contact-brand">POREOS</div>
-          <div className="contact-tagline" data-en>
-            Private Wellness · Barcelona
-          </div>
-          <div className="contact-tagline" data-es>
-            Bienestar Privado · Barcelona
-          </div>
+          <span className="contact-tagline">
+            {t(
+              lang,
+              "Private Wellness · Barcelona",
+              "Bienestar Privado · Barcelona",
+            )}
+          </span>
           <div className="contact-details">
-            <div className="contact-item">
-              <span className="contact-item-label" data-en>
-                Phone
-              </span>
-              <span className="contact-item-label" data-es>
-                Teléfono
-              </span>
-              <span className="contact-item-value">+34 632 99 67 97</span>
-            </div>
-            <div className="contact-item">
-              <span className="contact-item-label" data-en>
-                Location
-              </span>
-              <span className="contact-item-label" data-es>
-                Ubicación
-              </span>
-              <span className="contact-item-value" data-en>
-                Barcelona, Spain
-              </span>
-              <span className="contact-item-value" data-es>
-                Barcelona, España
-              </span>
-            </div>
-            <div className="contact-item">
-              <span className="contact-item-label" data-en>
-                Availability
-              </span>
-              <span className="contact-item-label" data-es>
-                Disponibilidad
-              </span>
-              <span className="contact-item-value" data-en>
-                By Private Appointment
-              </span>
-              <span className="contact-item-value" data-es>
-                Cita Privada
-              </span>
-            </div>
-            <div className="contact-item">
-              <span className="contact-item-label" data-en>
-                Contact
-              </span>
-              <span className="contact-item-label" data-es>
-                Contacto
-              </span>
-              <span className="contact-item-value">Suli — 632 99 67 97</span>
-            </div>
+            {[
+              {
+                labelEn: "Phone",
+                labelEs: "Teléfono",
+                valueEn: "+34 632 99 67 97",
+                valueEs: "+34 632 99 67 97",
+              },
+              {
+                labelEn: "Location",
+                labelEs: "Ubicación",
+                valueEn: "Barcelona, Spain",
+                valueEs: "Barcelona, España",
+              },
+              {
+                labelEn: "Availability",
+                labelEs: "Disponibilidad",
+                valueEn: "By Private Appointment",
+                valueEs: "Cita Privada",
+              },
+              {
+                labelEn: "Contact",
+                labelEs: "Contacto",
+                valueEn: "Suli — 632 99 67 97",
+                valueEs: "Suli — 632 99 67 97",
+              },
+            ].map((item) => (
+              <div key={item.labelEn} className="contact-item">
+                <span className="contact-item-label">
+                  {t(lang, item.labelEn, item.labelEs)}
+                </span>
+                <span className="contact-item-value">
+                  {t(lang, item.valueEn, item.valueEs)}
+                </span>
+              </div>
+            ))}
           </div>
           <div className="contact-social">
             <a href="#" className="social-link">
@@ -71,47 +75,63 @@ export function Contact() {
           </div>
         </div>
         <div className="contact-right">
-          <div className="contact-form">
-            <div className="form-group">
-              <label className="form-label" data-en>
-                Full Name
-              </label>
-              <label className="form-label" data-es>
-                Nombre completo
-              </label>
-              <input
-                type="text"
-                className="form-input"
-                placeholder="Your name / Tu nombre"
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Email</label>
-              <input
-                type="email"
-                className="form-input"
-                placeholder="your@email.com"
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label" data-en>
-                Message
-              </label>
-              <label className="form-label" data-es>
-                Mensaje
-              </label>
-              <textarea
-                className="form-textarea"
-                placeholder="Tell us briefly what you're looking for... / Cuéntanos brevemente qué buscas..."
-              ></textarea>
-            </div>
-            <button className="form-submit" data-en>
-              Send Message
-            </button>
-            <button className="form-submit" data-es>
-              Enviar Mensaje
-            </button>
-          </div>
+          {sent ? (
+            <p className="contact-sent-msg">
+              {t(
+                lang,
+                "Thank you. We will respond within 24 hours.",
+                "Gracias. Responderemos en 24 horas.",
+              )}
+            </p>
+          ) : (
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label className="form-label">
+                  {t(lang, "Full Name", "Nombre completo")}
+                </label>
+                <input
+                  className="form-input"
+                  name="name"
+                  placeholder={t(lang, "Your name", "Tu nombre")}
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Email</label>
+                <input
+                  className="form-input"
+                  type="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">
+                  {t(lang, "Message", "Mensaje")}
+                </label>
+                <textarea
+                  className="form-textarea"
+                  name="message"
+                  placeholder={t(
+                    lang,
+                    "Tell us briefly what you're looking for...",
+                    "Cuéntanos brevemente qué buscas...",
+                  )}
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <button type="submit" className="form-submit">
+                {t(lang, "Send Message", "Enviar Mensaje")}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>

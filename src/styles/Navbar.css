@@ -3,29 +3,24 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9999;
+  z-index: 100;
   padding: 2rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition:
     background 0.4s,
-    padding 0.4s,
-    box-shadow 0.4s;
-  background: linear-gradient(
-    to bottom,
-    rgba(26, 36, 16, 0.75) 0%,
-    rgba(26, 36, 16, 0) 100%
-  );
+    padding 0.4s;
 }
+
 nav.scrolled {
-  background: rgba(250, 247, 242, 0.97);
+  background: rgba(250, 247, 242, 0.95);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  padding: 1rem 4rem;
+  padding: 1.2rem 4rem;
   border-bottom: 1px solid rgba(136, 144, 99, 0.2);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 }
+
 .nav-logo {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.5rem;
@@ -35,6 +30,7 @@ nav.scrolled {
   text-decoration: none;
   transition: color 0.4s;
 }
+
 nav.scrolled .nav-logo {
   color: var(--kombu);
 }
@@ -44,6 +40,7 @@ nav.scrolled .nav-logo {
   gap: 3rem;
   list-style: none;
 }
+
 .nav-links a {
   font-size: 0.7rem;
   font-weight: 300;
@@ -53,9 +50,23 @@ nav.scrolled .nav-logo {
   text-decoration: none;
   transition: color 0.3s;
 }
+
 nav.scrolled .nav-links a {
   color: var(--moss);
 }
+
 .nav-links a:hover {
   color: var(--tan) !important;
+}
+
+@media (max-width: 900px) {
+  nav {
+    padding: 1.5rem 2rem;
+  }
+  nav.scrolled {
+    padding: 1rem 2rem;
+  }
+  .nav-links {
+    display: none;
+  }
 }

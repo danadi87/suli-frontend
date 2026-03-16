@@ -1,0 +1,36 @@
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  font-family: "Jost", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: color 0.3s;
+  padding: 0.2rem 0.4rem;
+}
+
+.lang-btn.active {
+  color: var(--tan);
+  border-bottom: 1px solid var(--tan);
+}
+
+.lang-btn:not(.active) {
+  color: rgba(250, 247, 242, 0.4);
+}
+
+.lang-btn:hover:not(.active) {
+  color: rgba(250, 247, 242, 0.7);
+}
+
+.lang-divider {
+  width: 1px;
+  height: 10px;
+  background: rgba(250, 247, 242, 0.2);
+}

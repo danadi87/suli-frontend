@@ -1,0 +1,152 @@
+.signup-page {
+  min-height: 100vh;
+  background: var(--bone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+
+.signup-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25vw;
+  font-weight: 300;
+  color: rgba(136, 144, 99, 0.05);
+  white-space: nowrap;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.signup-card {
+  position: relative;
+  background: var(--cream);
+  padding: 4rem;
+  width: 100%;
+  max-width: 520px;
+  z-index: 1;
+}
+
+.signup-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: var(--kombu);
+  margin-bottom: 0.5rem;
+}
+
+.signup-subtitle {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 3rem;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.signup-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.signup-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.signup-form .form-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--moss);
+}
+
+.signup-form .form-input {
+  background: var(--bone);
+  border: 1px solid rgba(207, 187, 153, 0.4);
+  padding: 0.9rem 1rem;
+  font-family: "Jost", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--kombu);
+  outline: none;
+  letter-spacing: 0.05em;
+  transition: border-color 0.3s;
+}
+
+.signup-form .form-input::placeholder {
+  color: rgba(17, 26, 25, 0.3);
+}
+
+.signup-form .form-input:focus {
+  border-color: var(--moss);
+  background: var(--cream);
+}
+
+.signup-submit {
+  padding: 1rem;
+  background: var(--kombu);
+  color: var(--cream);
+  border: none;
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: background 0.3s;
+  margin-top: 0.5rem;
+}
+
+.signup-submit:hover {
+  background: var(--moss);
+}
+
+.signup-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba(17, 26, 25, 0.5);
+}
+
+.signup-footer a {
+  color: var(--moss);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(136, 144, 99, 0.4);
+}
+
+.signup-footer a:hover {
+  color: var(--kombu);
+}
+
+.signup-error {
+  font-size: 0.75rem;
+  color: #c0392b;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  background: rgba(192, 57, 43, 0.06);
+  border-left: 2px solid #c0392b;
+}
+
+@media (max-width: 600px) {
+  .signup-form .form-row {
+    grid-template-columns: 1fr;
+  }
+  .signup-card {
+    padding: 2.5rem 2rem;
+  }
+}

@@ -1,70 +1,39 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "../styles/Navbar.css";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLang, t } from "../context/language.context.jsx";
 
-export function Navbar() {
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const { lang } = useLang();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const links = [
+    { href: "#about", en: "About", es: "Sobre Suli" },
+    { href: "#services", en: "Services", es: "Servicios" },
+    { href: "#membership", en: "Investment", es: "Inversión" },
+    { href: "#consult", en: "Consult", es: "Consulta" },
+    { href: "#contact", en: "Contact", es: "Contacto" },
+  ];
+
   return (
-    <div>
-      <nav id="navbar">
-        <a href="#" className="nav-logo">
-          POREOS
-        </a>
-        <ul className="nav-links">
-          <li>
-            <a href="#about" data-en="true">
-              About
-            </a>
-            <a href="#about" data-es="true">
-              Sobre Suli
-            </a>
+    <nav id="navbar" className={scrolled ? "scrolled" : ""}>
+      <a href="#" className="nav-logo">
+        POREOS
+      </a>
+      <ul className="nav-links">
+        {links.map((l) => (
+          <li key={l.href}>
+            <a href={l.href}>{t(lang, l.en, l.es)}</a>
           </li>
-          <li>
-            <a href="#services" data-en="true">
-              Services
-            </a>
-            <a href="#services" data-es="true">
-              Servicios
-            </a>
-          </li>
-          <li>
-            <a href="#membership" data-en="true">
-              Investment
-            </a>
-            <a href="#membership" data-es="true">
-              Inversión
-            </a>
-          </li>
-          <li>
-            <a href="#consult" data-en="true">
-              Consult
-            </a>
-            <a href="#consult" data-es="true">
-              Consulta
-            </a>
-          </li>
-          <li>
-            <a href="#contact" data-en="true">
-              Contact
-            </a>
-            <a href="#contact" data-es="true">
-              Contacto
-            </a>
-          </li>
-        </ul>
-        <div className="lang-switch">
-          <button
-            className="lang-btn active"
-            id="btn-en"
-            onclick="setLang('en')"
-          >
-            EN
-          </button>
-          <div className="lang-divider"></div>
-          <button className="lang-btn" id="btn-es" onclick="setLang('es')">
-            ES
-          </button>
-        </div>
-      </nav>
-      ;
-    </div>
+        ))}
+      </ul>
+      <LanguageSwitcher />
+    </nav>
   );
 }

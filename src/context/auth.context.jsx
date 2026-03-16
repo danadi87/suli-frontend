@@ -81,5 +81,8 @@ function AuthProviderWrapper(props) {
     </AuthContext.Provider>
   );
 }
+function useAuth() {
+  return useContext(AuthContext);
+}
 
-export { AuthProviderWrapper, AuthContext };
+export { AuthProviderWrapper, AuthContext, useAuth };

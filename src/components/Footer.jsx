@@ -1,32 +1,18 @@
-import React from "react";
 import "../styles/Footer.css";
+import { useLang, t } from "../context/language.context.jsx";
 
-export function Footer() {
+export default function Footer() {
+  const { lang } = useLang();
   return (
-    <div>
-      <footer>
-        <span class="footer-copy">© 2026 POREOS · Suli · Barcelona</span>
-        <div class="footer-legal">
-          <a href="#" data-en="true">
-            Privacy
-          </a>
-          <a href="#" data-es="true">
-            Privacidad
-          </a>
-          <a href="#" data-en="true">
-            Terms
-          </a>
-          <a href="#" data-es="true">
-            Términos
-          </a>
-          <a href="#" data-en="true">
-            Discretion Policy
-          </a>
-          <a href="#" data-es="true">
-            Política de Discreción
-          </a>
-        </div>
-      </footer>
-    </div>
+    <footer>
+      <span className="footer-copy">
+        © {new Date().getFullYear()} POREOS · Suli · Barcelona
+      </span>
+      <div className="footer-legal">
+        <a href="#">{t(lang, "Privacy", "Privacidad")}</a>
+        <a href="#">{t(lang, "Terms", "Términos")}</a>
+        <a href="#">{t(lang, "Discretion Policy", "Política de Discreción")}</a>
+      </div>
+    </footer>
   );
 }
