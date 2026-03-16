@@ -16,9 +16,9 @@ export default function Navbar() {
   const links = [
     { href: "#about", en: "About", es: "Sobre Suli" },
     { href: "#services", en: "Services", es: "Servicios" },
-    { href: "#membership", en: "Investment", es: "Inversión" },
+    { href: "#membership", en: "Membership", es: "Suscripción" },
     { href: "#consult", en: "Consult", es: "Consulta" },
-    { href: "#contact", en: "Contact", es: "Contacto" },
+    { href: "#login", en: "Login", es: "Iniciar sesión" },
   ];
 
   return (

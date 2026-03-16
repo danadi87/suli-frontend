@@ -8,7 +8,6 @@ import Testimonials from "./Testimonials";
 import Membership from "./Membership";
 import Consultation from "./Consultation";
 import Contact from "./Contact";
-import Footer from "./Footer";
 
 export default function Homepage() {
   return (
@@ -22,7 +21,6 @@ export default function Homepage() {
       <Membership />
       <Consultation />
       <Contact />
-      <Footer />
     </div>
   );
 }
