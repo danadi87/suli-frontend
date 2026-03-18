@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLang, t } from "../context/language.context.jsx";
@@ -14,22 +15,22 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { href: "#about", en: "About", es: "Sobre Suli" },
-    { href: "#services", en: "Services", es: "Servicios" },
-    { href: "#membership", en: "Membership", es: "Suscripción" },
-    { href: "#consult", en: "Consult", es: "Consulta" },
-    { href: "#login", en: "Login", es: "Iniciar sesión" },
+    { to: "/about", en: "About", es: "Sobre Suli" },
+    { to: "/services", en: "Services", es: "Servicios" },
+    { to: "/membership", en: "Membership", es: "Suscripción" },
+    { to: "/consultation", en: "Consult", es: "Consulta" },
+    { to: "/login", en: "Login", es: "Iniciar sesión" },
   ];
 
   return (
     <nav id="navbar" className={scrolled ? "scrolled" : ""}>
-      <a href="#" className="nav-logo">
+      <Link to="/" className="nav-logo">
         POREOS
-      </a>
+      </Link>
       <ul className="nav-links">
         {links.map((l) => (
-          <li key={l.href}>
-            <a href={l.href}>{t(lang, l.en, l.es)}</a>
+          <li key={l.to}>
+            <Link to={l.to}>{t(lang, l.en, l.es)}</Link>
           </li>
         ))}
       </ul>
