@@ -107,3 +107,106 @@
     padding: 5rem 2rem;
   }
 }
+/* ── Form entry points ── */
+.consult-forms-row {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(136, 144, 99, 0.15);
+}
+
+.consult-forms-label {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba(17, 26, 25, 0.45);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.2rem;
+}
+
+.consult-forms-btns {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+}
+
+.consult-form-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.4rem 2rem;
+  background: var(--bone);
+  border: 1px solid rgba(136, 144, 99, 0.2);
+  text-decoration: none;
+  transition: all 0.3s;
+  min-width: 200px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.consult-form-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--moss);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+
+.consult-form-btn:hover {
+  background: var(--cream);
+  border-color: var(--moss);
+}
+.consult-form-btn:hover::after {
+  transform: scaleX(1);
+}
+
+.consult-form-btn-dark {
+  background: var(--kombu);
+  border-color: var(--kombu);
+}
+
+.consult-form-btn-dark:hover {
+  background: var(--moss);
+  border-color: var(--moss);
+}
+
+.consult-form-btn-dark::after {
+  background: var(--tan);
+}
+
+.consult-form-btn-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--kombu);
+  text-transform: uppercase;
+}
+
+.consult-form-btn-dark .consult-form-btn-label {
+  color: var(--tan);
+}
+
+.consult-form-btn-sub {
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--moss);
+}
+
+.consult-form-btn-dark .consult-form-btn-sub {
+  color: rgba(207, 187, 153, 0.6);
+}
+
+@media (max-width: 600px) {
+  .consult-forms-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+  .consult-form-btn {
+    min-width: 100%;
+    max-width: 340px;
+  }
+}

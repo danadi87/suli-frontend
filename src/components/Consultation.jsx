@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Consultation.css";
 import { useLang, t } from "../context/language.context.jsx";
 
@@ -98,6 +99,46 @@ export default function Consultation() {
             "Tu información nunca se comparte. Respuesta en 24 horas.",
           )}
         </span>
+
+        {/* ── Client forms entry points ── */}
+        <div className="consult-forms-row">
+          <p className="consult-forms-label">
+            {t(
+              lang,
+              "Already decided? Complete your intake forms directly:",
+              "¿Ya lo has decidido? Completa tus formularios directamente:",
+            )}
+          </p>
+          <div className="consult-forms-btns">
+            <Link to="/assessment" className="consult-form-btn">
+              <span className="consult-form-btn-label">
+                {t(lang, "Initial Assessment", "Valoración Inicial")}
+              </span>
+              <span className="consult-form-btn-sub">
+                {t(
+                  lang,
+                  "5 min · Health & background",
+                  "5 min · Salud y antecedentes",
+                )}
+              </span>
+            </Link>
+            <Link
+              to="/training-routine"
+              className="consult-form-btn consult-form-btn-dark"
+            >
+              <span className="consult-form-btn-label">
+                {t(lang, "Training Routine", "Rutina de Entrenamiento")}
+              </span>
+              <span className="consult-form-btn-sub">
+                {t(
+                  lang,
+                  "5 min · Customise your programme",
+                  "5 min · Personaliza tu programa",
+                )}
+              </span>
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -15,6 +15,8 @@ import Services from "./components/Services";
 import Testimonials from "./components/Testimonials";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import AssessmentForm from "./components/AssessmentForm";
+import TrainingRoutine from "./components/TrainingRoutine";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path="/membership" element={<Membership />} />
         <Route path="/services" element={<Services />} />
         <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/assessment" element={<AssessmentForm />} />
+        <Route path="/training-routine" element={<TrainingRoutine />} />
       </Routes>
       <Footer />
     </div>
