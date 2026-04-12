@@ -1,10 +1,18 @@
 import { useEffect, useRef } from "react";
 import "../styles/Services.css";
 import { useLang, t } from "../context/language.context.jsx";
+import imgYoga from "../assets/yoga_class.jpeg";
+import imgYogaEmpty from "../assets/yoga_class_empty_1.jpeg";
+import imgPilates from "../assets/pilates_mat_with_people_1.jpeg";
+import imgPilatesStudio from "../assets/pilates-studio-interior.jpeg";
+import imgFunctional from "../assets/functional_training_1.jpeg";
+import imgPersonal from "../assets/personal_training_1.jpeg";
+import imgPersonal2 from "../assets/personal_training_5.jpeg";
 
 const PILLARS = [
   {
     n: "01",
+    img: imgYogaEmpty,
     en: {
       title: "Precision Over Volume",
       text: "Fewer, more intentional sessions yield superior outcomes. Each movement is programmed with biomechanical exactness, eliminating the inefficiency of conventional training.",
@@ -16,6 +24,7 @@ const PILLARS = [
   },
   {
     n: "02",
+    img: imgPilatesStudio,
     en: {
       title: "Science as Foundation",
       text: "Every protocol is grounded in peer-reviewed research. Progress is tracked, measured, and adjusted with the same rigour as a performance laboratory.",
@@ -27,6 +36,7 @@ const PILLARS = [
   },
   {
     n: "03",
+    img: imgPersonal2,
     en: {
       title: "Absolute Discretion",
       text: "Sessions take place at your residence, your company's dedicated space, or exclusive partner facilities in Barcelona. Your practice — and your results — remain entirely confidential.",
@@ -41,6 +51,7 @@ const PILLARS = [
 const SERVICES = [
   {
     n: "01",
+    img: imgYoga,
     en: {
       icon: "01 — Yoga",
       name: "Private Yoga",
@@ -56,6 +67,7 @@ const SERVICES = [
   },
   {
     n: "02",
+    img: imgPilates,
     en: {
       icon: "02 — Pilates",
       name: "Mat Pilates",
@@ -71,6 +83,7 @@ const SERVICES = [
   },
   {
     n: "03",
+    img: imgFunctional,
     en: {
       icon: "03 — Functional Training",
       name: "Functional Performance Training",
@@ -106,7 +119,7 @@ export default function Services() {
 
   return (
     <div ref={ref}>
-      {/* Philosophy */}
+      {/*Philosophy*/}
       <section className="philosophy" id="philosophy">
         <div className="philosophy-inner">
           <div className="philosophy-header">
@@ -138,12 +151,16 @@ export default function Services() {
               )}
             </p>
           </div>
+
           <div className="pillars">
             {PILLARS.map((p, i) => (
               <div
                 key={p.n}
                 className={`pillar reveal${i > 0 ? ` reveal-delay-${i}` : ""}`}
               >
+                <div className="pillar-photo">
+                  <img src={p.img} alt={p[lang].title} />
+                </div>
                 <div className="pillar-number">{p.n}</div>
                 <div className="pillar-title">{p[lang].title}</div>
                 <p className="pillar-text">{p[lang].text}</p>
@@ -153,7 +170,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services */}
+      {/*Services*/}
       <section className="services" id="services">
         <div className="services-inner">
           <div className="services-header">
@@ -185,19 +202,22 @@ export default function Services() {
               )}
             </p>
           </div>
+
           <div className="services-grid">
             {SERVICES.map((s, i) => (
               <div
                 key={s.n}
                 className={`service-card reveal${i > 0 ? ` reveal-delay-${i}` : ""}`}
               >
+                <div className="service-card-photo">
+                  <img src={s.img} alt={s[lang].name} />
+                </div>
                 <span className="service-icon">{s[lang].icon}</span>
                 <h3 className="service-name">{s[lang].name}</h3>
                 <p className="service-desc">{s[lang].desc}</p>
                 <span className="service-rate">{s[lang].rate}</span>
               </div>
             ))}
-            {/* Signature featured card */}
             <div className="service-card featured reveal">
               <div className="featured-content">
                 <span className="service-icon">
@@ -222,6 +242,11 @@ export default function Services() {
                 </span>
               </div>
               <div className="featured-image">
+                <img
+                  src={imgPersonal}
+                  alt="The POREOS Experience"
+                  className="featured-photo"
+                />
                 <div className="featured-image-pattern" />
                 <div className="featured-image-text">POREOS</div>
               </div>

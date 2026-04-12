@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/Navbar.css";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLang, t } from "../context/language.context.jsx";
@@ -7,6 +7,8 @@ import { useLang, t } from "../context/language.context.jsx";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { lang } = useLang();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -23,7 +25,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav id="navbar" className={scrolled ? "scrolled" : ""}>
+    <nav id="navbar" className={`${scrolled || !isHome ? "scrolled" : ""}`}>
       <Link to="/" className="nav-logo">
         POREOS
       </Link>

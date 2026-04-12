@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "../styles/About.css";
 import { useLang, t } from "../context/language.context.jsx";
-import aboutPhoto from "../assets/0d7f98a3-4539-40ee-b191-382ae8ebd46a.JPEG";
+import aboutPhoto from "../assets/pilates-studio-interior.jpeg";
 
 export default function About() {
   const { lang } = useLang();
@@ -23,7 +23,7 @@ export default function About() {
 
   return (
     <>
-      {/* ── Manifesto ──────────────────────────────────── */}
+      {/*Manifesto*/}
       <div className="manifesto">
         <div className="manifesto-inner">
           <p className="manifesto-quote">
@@ -46,7 +46,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* ── About ──────────────────────────────────────── */}
+      {/*About*/}
       <section className="about" id="about" ref={ref}>
         <div className="about-image-col">
           <img
