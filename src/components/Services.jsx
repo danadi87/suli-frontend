@@ -14,24 +14,24 @@ const PILLARS = [
     n: "01",
     img: imgYogaEmpty,
     en: {
-      title: "Precision Over Volume",
-      text: "Fewer, more intentional sessions yield superior outcomes. Each movement is programmed with biomechanical exactness, eliminating the inefficiency of conventional training.",
+      title: "Efficiency in Every Session",
+      text: "Each step follows a specific logic. The training is organized in a coherent and consistent manner.",
     },
     es: {
-      title: "Precisión Sobre Volumen",
-      text: "Menos sesiones, más intencionales, generan resultados superiores. Cada movimiento está programado con exactitud biomecánica, eliminando la ineficiencia del entrenamiento convencional.",
+      title: "Eficiencia en Cada Sesión",
+      text: "Cada paso sigue una lógica concreta. El entrenamiento se organiza de forma coherente y con continuidad.",
     },
   },
   {
     n: "02",
     img: imgPilatesStudio,
     en: {
-      title: "Science as Foundation",
-      text: "Every protocol is grounded in peer-reviewed research. Progress is tracked, measured, and adjusted with the same rigour as a performance laboratory.",
+      title: "Operational Excellence",
+      text: "Every aspect of the service is designed to operate with precision and consistency. The standards are high, and the execution is always meticulous.",
     },
     es: {
-      title: "La Ciencia como Base",
-      text: "Cada protocolo se basa en investigación científica contrastada. El progreso se registra, mide y ajusta con el mismo rigor que un laboratorio de rendimiento.",
+      title: "Excelencia Operativa",
+      text: "Cada aspecto del servicio está diseñado para funcionar con presición y consistencia. El nivel es alto y la ejecución siempre cuidada.",
     },
   },
   {

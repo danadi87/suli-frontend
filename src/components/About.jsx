@@ -60,12 +60,6 @@ export default function About() {
             }}
           />
           <div className="about-photo-tint" />
-          <div className="about-accent">
-            <div className="about-accent-stat">12+</div>
-            <div className="about-accent-label">
-              {t(lang, "Years of Private Practice", "Años de Práctica Privada")}
-            </div>
-          </div>
         </div>
 
         <div className="about-content">

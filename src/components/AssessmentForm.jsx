@@ -177,7 +177,7 @@ function Scale({
   );
 }
 
-// ── Initial form data ─────────────────────────────────────────────────────────
+// ── Initial form data
 const INITIAL_DATA = {
   // Step 1
   firstName: "",
@@ -216,7 +216,7 @@ const INITIAL_DATA = {
   additionalNotes: "",
 };
 
-// ── Main component ────────────────────────────────────────────────────────────
+// ── Main component ─
 export default function AssessmentForm() {
   const { lang } = useLang();
   const [step, setStep] = useState(0);
@@ -244,7 +244,7 @@ export default function AssessmentForm() {
   const progress = ((step + 1) / TOTAL_STEPS) * 100;
   const steps = STEPS[lang];
 
-  // ── Confirmation ────────────────────────────────────────────────────────────
+  // ── Confirmation ──
   if (submitted) {
     return (
       <div className="assessment-page">
@@ -305,10 +305,10 @@ export default function AssessmentForm() {
     );
   }
 
-  // ── Step panels ─────────────────────────────────────────────────────────────
+  // ── Step panels ─
   const renderStep = () => {
     switch (step) {
-      // ── STEP 1: Personal Details ─────────────────────────────────────────
+      // ── STEP 1: Personal Details ──
       case 0:
         return (
           <div className="step-panel" key="s0">
@@ -427,7 +427,7 @@ export default function AssessmentForm() {
           </div>
         );
 
-      // ── STEP 2: Health & Medical ─────────────────────────────────────────
+      // ── STEP 2: Health & Medical ──
       case 1:
         return (
           <div className="step-panel" key="s1">
@@ -631,7 +631,7 @@ export default function AssessmentForm() {
           </div>
         );
 
-      // ── STEP 3: Fitness History ──────────────────────────────────────────
+      // ── STEP 3: Fitness History ──
       case 2:
         return (
           <div className="step-panel" key="s2">
@@ -829,8 +829,8 @@ export default function AssessmentForm() {
                   values={data.disciplines}
                   onChange={setField}
                   options={[
-                    { value: "yoga", label: "Yoga", icon: "🧘" },
-                    { value: "pilates", label: "Pilates", icon: "🏋️" },
+                    { value: "yoga", label: "Yoga" },
+                    { value: "pilates", label: "Pilates" },
                     {
                       value: "functional",
                       label: t(
@@ -838,28 +838,23 @@ export default function AssessmentForm() {
                         "Functional Training",
                         "Entrenamiento Funcional",
                       ),
-                      icon: "⚡",
                     },
                     {
                       value: "running",
                       label: t(lang, "Running / Cycling", "Carrera / Ciclismo"),
-                      icon: "🏃",
                     },
                     {
                       value: "swimming",
                       label: t(lang, "Swimming", "Natación"),
-                      icon: "🏊",
                     },
-                    { value: "crossfit", label: "CrossFit / HIIT", icon: "🔥" },
+                    { value: "crossfit", label: "CrossFit / HIIT" },
                     {
                       value: "martial",
                       label: t(lang, "Martial Arts", "Artes Marciales"),
-                      icon: "🥋",
                     },
                     {
                       value: "other",
                       label: t(lang, "Other", "Otro"),
-                      icon: "➕",
                     },
                   ]}
                 />
@@ -868,7 +863,7 @@ export default function AssessmentForm() {
           </div>
         );
 
-      // ── STEP 4: Lifestyle ────────────────────────────────────────────────
+      // ── STEP 4: Lifestyle ──
       case 3:
         return (
           <div className="step-panel" key="s3">
@@ -1092,7 +1087,7 @@ export default function AssessmentForm() {
           </div>
         );
 
-      // ── STEP 5: Goals ────────────────────────────────────────────────────
+      // ── STEP 5: Goals ──
       case 4:
         return (
           <div className="step-panel" key="s4">
@@ -1142,17 +1137,14 @@ export default function AssessmentForm() {
                       {
                         value: "fat-loss",
                         label: t(lang, "Fat loss", "Pérdida de grasa"),
-                        icon: "⚖️",
                       },
                       {
                         value: "muscle",
                         label: t(lang, "Strength & muscle", "Fuerza y músculo"),
-                        icon: "💪",
                       },
                       {
                         value: "flexibility",
                         label: t(lang, "Flexibility", "Flexibilidad"),
-                        icon: "🤸",
                       },
                       {
                         value: "posture",
@@ -1161,7 +1153,6 @@ export default function AssessmentForm() {
                           "Posture & alignment",
                           "Postura y alineación",
                         ),
-                        icon: "🏛️",
                       },
                       {
                         value: "stress",
@@ -1170,7 +1161,6 @@ export default function AssessmentForm() {
                           "Stress reduction",
                           "Reducción del estrés",
                         ),
-                        icon: "🧘",
                       },
                       {
                         value: "energy",
@@ -1179,12 +1169,10 @@ export default function AssessmentForm() {
                           "Energy & vitality",
                           "Energía y vitalidad",
                         ),
-                        icon: "✨",
                       },
                       {
                         value: "rehab",
                         label: t(lang, "Rehabilitation", "Rehabilitación"),
-                        icon: "🩺",
                       },
                       {
                         value: "performance",
@@ -1193,7 +1181,6 @@ export default function AssessmentForm() {
                           "Athletic performance",
                           "Rendimiento deportivo",
                         ),
-                        icon: "🏆",
                       },
                     ]}
                   />
@@ -1298,7 +1285,7 @@ export default function AssessmentForm() {
     }
   };
 
-  // ── Render ───────────────────────────────────────────────────────────────────
+  // ── Render ──
   return (
     <div className="assessment-page">
       <nav className="assessment-topbar">
