@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 import "../styles/Consultation.css";
 import { useLang, t } from "../context/language.context.jsx";
 
@@ -7,7 +8,13 @@ export default function Consultation() {
   const { lang } = useLang();
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
   const ref = useRef(null);
+
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,11 +30,26 @@ export default function Consultation() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Consultation request:", email);
-    setSubmitted(true);
-    setEmail("");
+    setSending(true);
+    setError(false);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        { from_email: email },
+        EMAILJS_PUBLIC_KEY,
+      );
+      setSubmitted(true);
+      setEmail("");
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -65,6 +87,7 @@ export default function Consultation() {
             "Cada relación con un cliente comienza con una consulta confidencial de 30 minutos — sin compromiso, sin proceso de venta. Simplemente una conversación honesta sobre dónde estás y cómo es la excelencia para ti.",
           )}
         </p>
+
         {submitted ? (
           <p className="consult-confirmed">
             {t(
@@ -74,24 +97,40 @@ export default function Consultation() {
             )}
           </p>
         ) : (
-          <form className="consult-form" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              className="consult-input"
-              placeholder={t(
-                lang,
-                "Your email address",
-                "Tu dirección de correo",
-              )}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button type="submit" className="consult-btn">
-              {t(lang, "Request →", "Solicitar →")}
-            </button>
-          </form>
+          <>
+            <form className="consult-form" onSubmit={handleSubmit}>
+              <input
+                type="email"
+                className="consult-input"
+                placeholder={t(
+                  lang,
+                  "Your email address",
+                  "Tu dirección de correo",
+                )}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={sending}
+              />
+              <button type="submit" className="consult-btn" disabled={sending}>
+                {sending
+                  ? t(lang, "Sending…", "Enviando…")
+                  : t(lang, "Request →", "Solicitar →")}
+              </button>
+            </form>
+
+            {error && (
+              <p className="consult-error">
+                {t(
+                  lang,
+                  "Something went wrong. Please try again.",
+                  "Algo ha salido mal. Por favor, inténtalo de nuevo.",
+                )}
+              </p>
+            )}
+          </>
         )}
+
         <span className="consult-privacy">
           {t(
             lang,
