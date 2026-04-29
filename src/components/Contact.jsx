@@ -1,19 +1,46 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "../styles/Contact.css";
 import { useLang, t } from "../context/language.context.jsx";
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function Contact() {
   const { lang } = useLang();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e) =>
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
-    setSent(true);
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+    setError(false);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
+      setSent(true);
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -74,6 +101,7 @@ export default function Contact() {
             </a>
           </div>
         </div>
+
         <div className="contact-right">
           {sent ? (
             <p className="contact-sent-msg">
@@ -96,6 +124,7 @@ export default function Contact() {
                   value={form.name}
                   onChange={handleChange}
                   required
+                  disabled={sending}
                 />
               </div>
               <div className="form-group">
@@ -108,6 +137,7 @@ export default function Contact() {
                   value={form.email}
                   onChange={handleChange}
                   required
+                  disabled={sending}
                 />
               </div>
               <div className="form-group">
@@ -125,10 +155,24 @@ export default function Contact() {
                   value={form.message}
                   onChange={handleChange}
                   required
+                  disabled={sending}
                 />
               </div>
-              <button type="submit" className="form-submit">
-                {t(lang, "Send Message", "Enviar Mensaje")}
+
+              {error && (
+                <p className="contact-error-msg">
+                  {t(
+                    lang,
+                    "Something went wrong. Please try again.",
+                    "Algo ha salido mal. Por favor, inténtalo de nuevo.",
+                  )}
+                </p>
+              )}
+
+              <button type="submit" className="form-submit" disabled={sending}>
+                {sending
+                  ? t(lang, "Sending…", "Enviando…")
+                  : t(lang, "Send Message", "Enviar Mensaje")}
               </button>
             </form>
           )}
