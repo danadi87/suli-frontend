@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 import { useLang, t } from "../context/language.context";
 import LanguageSwitcher from "./LanguageSwitcher";
 import "../styles/AssessmentForm.css";
 
-// ── Step definitions ─────────────────────────────────────────────────────────
+// ── EmailJS credentials (same account, new template) ─
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_ASSESSMENT_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+// ── Step definitions ─
 const STEPS = {
   en: [
     { n: "01", name: "Personal Details" },
@@ -24,7 +30,7 @@ const STEPS = {
 
 const TOTAL_STEPS = 5;
 
-// ── Reusable field components ─────────────────────────────────────────────────
+// ── Reusable field components ──
 function Field({ label, children, span }) {
   return (
     <div className={`field-group${span ? ` span-${span}` : ""}`}>
@@ -222,6 +228,8 @@ export default function AssessmentForm() {
   const [step, setStep] = useState(0);
   const [data, setData] = useState(INITIAL_DATA);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   const setField = (name, value) =>
     setData((prev) => ({ ...prev, [name]: value }));
@@ -235,10 +243,61 @@ export default function AssessmentForm() {
     if (step > 0) setStep((s) => s - 1);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Assessment submitted:", data);
-    setSubmitted(true);
+    setSending(true);
+    setError(false);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          // Step 1 — Personal Details
+          first_name: data.firstName,
+          last_name: data.lastName,
+          age: data.age,
+          gender: data.gender,
+          from_email: data.email,
+          phone: data.phone,
+          occupation: data.occupation,
+          city: data.city,
+          // Step 2 — Health & Medical
+          injuries: data.injuries,
+          medical_conditions: data.medicalConditions,
+          medications: data.medications,
+          pain_areas: data.painAreas.join(", ") || "None",
+          surgeries: data.surgeries,
+          pregnant: data.pregnant,
+          // Step 3 — Fitness History
+          fitness_level: data.fitnessLevel,
+          years_training: data.yearsTraining,
+          disciplines: data.disciplines.join(", ") || "None",
+          training_frequency: data.trainingFrequency,
+          last_active_date: data.lastActiveDate,
+          // Step 4 — Lifestyle
+          sleep_hours: data.sleepHours,
+          stress_level: data.stressLevel,
+          work_type: data.workType,
+          diet_type: data.dietType,
+          alcohol_frequency: data.alcoholFrequency,
+          smoking_status: data.smokingStatus,
+          // Step 5 — Goals
+          primary_goal: data.primaryGoal,
+          secondary_goals: data.secondaryGoals.join(", ") || "None",
+          timeframe: data.timeframe,
+          motivation: data.motivation,
+          additional_notes: data.additionalNotes,
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
+      setSubmitted(true);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   const progress = ((step + 1) / TOTAL_STEPS) * 100;
@@ -1388,9 +1447,27 @@ export default function AssessmentForm() {
                   {t(lang, "Continue", "Continuar")} →
                 </button>
               ) : (
-                <button type="submit" className="btn-next submit">
-                  {t(lang, "Submit Assessment", "Enviar Valoración")} →
-                </button>
+                <>
+                  {error && (
+                    <span className="submit-error">
+                      {t(
+                        lang,
+                        "Something went wrong. Please try again.",
+                        "Algo ha salido mal. Por favor, inténtalo de nuevo.",
+                      )}
+                    </span>
+                  )}
+                  <button
+                    type="submit"
+                    className="btn-next submit"
+                    disabled={sending}
+                  >
+                    {sending
+                      ? t(lang, "Sending…", "Enviando…")
+                      : t(lang, "Submit Assessment", "Enviar Valoración") +
+                        " →"}
+                  </button>
+                </>
               )}
             </div>
           </form>

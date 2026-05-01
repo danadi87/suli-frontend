@@ -200,6 +200,17 @@
   color: rgba(207, 187, 153, 0.6);
 }
 
+.consult-form--full {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.consult-textarea {
+  height: 100px;
+  resize: none;
+  border-right: 1px solid rgba(207, 187, 153, 0.4);
+}
+
 @media (max-width: 600px) {
   .consult-forms-btns {
     flex-direction: column;

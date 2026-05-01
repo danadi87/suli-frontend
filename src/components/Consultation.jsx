@@ -4,17 +4,20 @@ import emailjs from "@emailjs/browser";
 import "../styles/Consultation.css";
 import { useLang, t } from "../context/language.context.jsx";
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 export default function Consultation() {
   const { lang } = useLang();
-  const [email, setEmail] = useState("");
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
   const ref = useRef(null);
 
-  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const handleChange = (e) =>
+    setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,11 +42,15 @@ export default function Consultation() {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        { from_email: email },
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
         EMAILJS_PUBLIC_KEY,
       );
       setSubmitted(true);
-      setEmail("");
+      setForm({ name: "", email: "", message: "" });
     } catch (err) {
       console.error("EmailJS error:", err);
       setError(true);
@@ -98,18 +105,44 @@ export default function Consultation() {
           </p>
         ) : (
           <>
-            <form className="consult-form" onSubmit={handleSubmit}>
+            <form
+              className="consult-form consult-form--full"
+              onSubmit={handleSubmit}
+            >
               <input
-                type="email"
                 className="consult-input"
+                type="text"
+                name="name"
+                placeholder={t(lang, "Your name", "Tu nombre")}
+                value={form.name}
+                onChange={handleChange}
+                required
+                disabled={sending}
+              />
+              <input
+                className="consult-input"
+                type="email"
+                name="email"
                 placeholder={t(
                   lang,
                   "Your email address",
                   "Tu dirección de correo",
                 )}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={form.email}
+                onChange={handleChange}
                 required
+                disabled={sending}
+              />
+              <textarea
+                className="consult-input consult-textarea"
+                name="message"
+                placeholder={t(
+                  lang,
+                  "Tell us briefly what you're looking for...",
+                  "Cuéntanos brevemente qué buscas...",
+                )}
+                value={form.message}
+                onChange={handleChange}
                 disabled={sending}
               />
               <button type="submit" className="consult-btn" disabled={sending}>
