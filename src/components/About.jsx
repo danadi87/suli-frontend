@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "../styles/About.css";
 import { useLang, t } from "../context/language.context.jsx";
-import aboutPhoto from "../assets/pilates-studio-interior.jpeg";
+import aboutPhoto from "../assets/gym-setup.jpeg";
 
 export default function About() {
   const { lang } = useLang();
@@ -89,43 +89,18 @@ export default function About() {
           <p className="about-body reveal reveal-delay-2">
             {t(
               lang,
-              "Suli is a Barcelona-based luxury wellness consultant specialising in bespoke physical optimisation for executives, entrepreneurs, and high-net-worth individuals. With advanced certifications in Vinyasa Yoga, Pilates Mat, and Functional Performance Training, he has built a private practice serving discerning clients who demand measurable results with absolute discretion.",
-              "Suli es un consultor de bienestar de alto nivel con sede en Barcelona, especializado en optimización física a medida para ejecutivos, emprendedores y particulares de alto poder adquisitivo. Con certificaciones avanzadas en Yoga Vinyasa, Pilates Mat y Entrenamiento Funcional de Alto Rendimiento, ha desarrollado una práctica privada para clientes exigentes que buscan resultados medibles con absoluta discreción.",
+              "Suli brings a different discipline to wellness — one shaped by evidence, precision, and an uncompromising standard of results. Based in Barcelona, his private practice serves individuals who treat physical optimisation the way they treat everything else: seriously. Every programme is engineered around the client — their schedule, their physiology, their goals — and delivered with the discretion and professionalism of a trusted senior advisor.",
+              "Suli aporta un enfoque diferente al bienestar: uno basado en la evidencia, la precisión y un nivel de exigencia sin concesiones en cuanto a los resultados. Con sede en Barcelona, su consulta privada atiende a personas que se toman la optimización física con la misma seriedad con la que se toman todo lo demás. Cada programa se diseña a medida del cliente —teniendo en cuenta su horario, su fisiología y sus objetivos— y se lleva a cabo con la discreción y la profesionalidad de un asesor de confianza.",
             )}
           </p>
 
           <p className="about-body reveal reveal-delay-2 mt-neg">
             {t(
               lang,
-              "His methodology bridges evidence-based movement science with the demands of elite performance — delivering training experiences held to the same standard as private banking or concierge medicine.",
-              "Su metodología une la ciencia del movimiento basada en evidencia con las exigencias del rendimiento de élite, ofreciendo una experiencia de entrenamiento a la altura de la banca privada o la medicina de concierge.",
+              "Suli is registered with the ROPEC, the Official Registry of Sports Professionals of Catalonia. Regulated by the Government of Catalonia, ROPEC accreditation confirms full professional qualification to deliver sports and performance coaching in the region — ensuring every client engages with a practitioner who meets recognised legal and professional standards. No ambiguity. No compromise.",
+              "Suli está registrado en el ROPEC, el Registro Oficial de Profesionales del Deporte de Cataluña. Regulado por la Generalitat de Cataluña, la acreditación del ROPEC confirma la plena cualificación profesional para impartir entrenamiento deportivo y de rendimiento en la región, lo que garantiza que cada cliente cuente con un profesional que cumple con los estándares legales y profesionales reconocidos. Sin ambigüedades. Sin concesiones.",
             )}
           </p>
-
-          <div className="about-credentials reveal reveal-delay-3">
-            <div className="credential-item">
-              <div className="credential-title">Yoga Alliance RYT</div>
-              <div className="credential-sub">Vinyasa · Hatha · Yin</div>
-            </div>
-            <div className="credential-item">
-              <div className="credential-title">
-                {t(lang, "Pilates Mat Certified", "Pilates Mat Certificado")}
-              </div>
-              <div className="credential-sub">
-                {t(
-                  lang,
-                  "Precision Movement Specialist",
-                  "Especialista en Movimiento",
-                )}
-              </div>
-            </div>
-            <div className="credential-item">
-              <div className="credential-title">ACE Personal Training</div>
-              <div className="credential-sub">
-                {t(lang, "Functional Performance", "Entrenamiento Funcional")}
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </>

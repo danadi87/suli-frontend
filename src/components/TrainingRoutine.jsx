@@ -4,7 +4,7 @@ import { useLang, t } from "../context/language.context";
 import LanguageSwitcher from "./LanguageSwitcher";
 import "../styles/TrainingRoutine.css";
 
-// ── Step definitions ─────────────────────────────────────────────────────────
+// ── Step definitions ──
 const STEPS = {
   en: [
     { n: "01", name: "Discipline & Format" },
@@ -24,7 +24,7 @@ const STEPS = {
 
 const TOTAL_STEPS = 5;
 
-// ── Initial data ─────────────────────────────────────────────────────────────
+// ── Initial data ──
 const INITIAL_DATA = {
   // Step 1
   disciplines: [],
@@ -51,8 +51,8 @@ const INITIAL_DATA = {
   additionalNotes: "",
 };
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
-function DisciplineCard({ id, icon, name, desc, rate, checked, onChange }) {
+// ── Helpers ───
+function DisciplineCard({ id, name, desc, rate, checked, onChange }) {
   return (
     <>
       <input
@@ -64,7 +64,6 @@ function DisciplineCard({ id, icon, name, desc, rate, checked, onChange }) {
       />
       <label htmlFor={id} className="discipline-card">
         <span className="discipline-check">✓</span>
-        <span className="discipline-icon">{icon}</span>
         <div className="discipline-name">{name}</div>
         <div className="discipline-desc">{desc}</div>
         <div className="discipline-rate">{rate}</div>

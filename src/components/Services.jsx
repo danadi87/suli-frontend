@@ -1,18 +1,19 @@
 import { useEffect, useRef } from "react";
 import "../styles/Services.css";
 import { useLang, t } from "../context/language.context.jsx";
-import imgYoga from "../assets/yoga_class.jpeg";
-import imgYogaEmpty from "../assets/yoga_class_empty_1.jpeg";
-import imgPilates from "../assets/pilates_mat_with_people_1.jpeg";
-import imgPilatesStudio from "../assets/pilates-studio-interior.jpeg";
-import imgFunctional from "../assets/functional_training_1.jpeg";
-import imgPersonal from "../assets/personal_training_1.jpeg";
-import imgPersonal2 from "../assets/personal_training_5.jpeg";
+import imgYoga from "../assets/yoga-mat.jpeg";
+import imgYogaEmpty from "../assets/yoga.jpeg";
+import imgPilates from "../assets/Untitled.jpg";
+import imgPilatesStudio from "../assets/pilates.jpeg";
+import imgFunctional from "../assets/home-gym.jpeg";
+import imgPersonal from "../assets/suli-yoga.png";
+import imgPersonal2 from "../assets/green-pilates.jpeg";
+import imgYogilates from "../assets/workout.jpeg";
 
 const PILLARS = [
   {
     n: "01",
-    img: imgYogaEmpty,
+    img: imgYoga,
     en: {
       title: "Efficiency in Every Session",
       text: "Each step follows a specific logic. The training is organized in a coherent and consistent manner.",
@@ -51,18 +52,18 @@ const PILLARS = [
 const SERVICES = [
   {
     n: "01",
-    img: imgYoga,
+    img: imgYogaEmpty,
     en: {
       icon: "01 — Yoga",
       name: "Private Yoga",
       desc: "Vinyasa, Hatha, and Yin sessions curated entirely to your physiology, schedule, and intention. Available at your home, rooftop, or partner location. Each session is a private ritual — not a class.",
-      rate: "From €90 · 60 or 90-minute format",
+      rate: "From €90 · 60 minutes",
     },
     es: {
       icon: "01 — Yoga",
       name: "Yoga Privado",
       desc: "Sesiones de Vinyasa, Hatha y Yin diseñadas según tu fisiología, horario e intención. Disponibles en tu domicilio, terraza o espacio asociado. Cada sesión es un ritual privado, no una clase.",
-      rate: "Desde €90 · Formato de 60 o 90 minutos",
+      rate: "Desde €90 · 60 minutos",
     },
   },
   {
@@ -72,13 +73,13 @@ const SERVICES = [
       icon: "02 — Pilates",
       name: "Mat Pilates",
       desc: "One-to-one Pilates Mat sessions focused on structural alignment, postural intelligence, and deep functional strength. Conducted at your home or dedicated space — the precision of a private studio without the group experience.",
-      rate: "From €95 · Private session format",
+      rate: "From €95 · 60 minutes",
     },
     es: {
       icon: "02 — Pilates",
       name: "Pilates Mat",
       desc: "Sesiones individuales de Pilates Mat orientadas a la alineación estructural, la inteligencia postural y la fuerza funcional profunda. En tu domicilio o espacio dedicado, con la precisión de un estudio privado.",
-      rate: "Desde €95 · Formato de sesión privada",
+      rate: "Desde €95 · 60 minutos",
     },
   },
   {
@@ -88,13 +89,29 @@ const SERVICES = [
       icon: "03 — Functional Training",
       name: "Functional Performance Training",
       desc: "Evidence-based functional training designed around your body's mechanics, performance goals, and daily demands. Sessions conducted at your home, your company's gym, or a partner facility in Barcelona. Measurable progress. No wasted movements.",
-      rate: "From €110 · In-home or company facility",
+      rate: "From €110 · 60 minutes",
     },
     es: {
       icon: "03 — Entrenamiento Funcional",
       name: "Entrenamiento Funcional de Alto Rendimiento",
       desc: "Entrenamiento funcional basado en evidencia, diseñado en torno a la mecánica de tu cuerpo, tus objetivos de rendimiento y tus exigencias diarias. En tu domicilio, el gimnasio de tu empresa o una instalación asociada en Barcelona. Progreso medible.",
-      rate: "Desde €110 · En domicilio o instalaciones de empresa",
+      rate: "Desde €110 · 60 minutos",
+    },
+  },
+  {
+    n: "04",
+    img: imgYogilates,
+    en: {
+      icon: "04 — Yogilates",
+      name: "Yogilates",
+      desc: "A refined fusion of Yoga and Pilates Mat designed to cultivate mobility, postural balance, controlled strength, and mental clarity. Each session integrates fluid movement with deep structural precision, creating a practice that feels both restorative and performance-oriented.",
+      rate: "From €110 · 60 minutes",
+    },
+    es: {
+      icon: "04 — Yogilates",
+      name: "Yogilates",
+      desc: "Una refinada fusión de yoga y pilates, diseñada para fomentar la movilidad, el equilibrio postural, la fuerza controlada y la claridad mental. Cada sesión combina movimientos fluidos con una profunda precisión estructural, creando una práctica que resulta a la vez regeneradora y orientada al rendimiento.",
+      rate: "Desde €110 · 60 minutos",
     },
   },
 ];
@@ -194,11 +211,17 @@ export default function Services() {
                 )}
               </h2>
             </div>
-            <p className="services-note reveal">
+          </div>
+
+          <div className="services-location reveal">
+            <div className="services-location-headline">
+              {t(lang, "We come to you.", "Vamos a ti.")}
+            </div>
+            <p className="services-location-detail">
               {t(
                 lang,
-                "All services available at your home, your company's gym or dedicated space, or at exclusive partner facilities across Barcelona.",
-                "Todos los servicios disponibles en tu domicilio, en el gimnasio o espacio de tu empresa, o en instalaciones exclusivas en Barcelona.",
+                "Every session is conducted exclusively at your home, your company's dedicated space, or a partner facility in Barcelona. No gym membership. No commute. No shared environment.",
+                "Cada sesión se realiza exclusivamente en tu domicilio, el espacio dedicado de tu empresa o una instalación asociada en Barcelona. Sin cuotas de gimnasio. Sin desplazamientos. Sin entornos compartidos.",
               )}
             </p>
           </div>
@@ -212,10 +235,12 @@ export default function Services() {
                 <div className="service-card-photo">
                   <img src={s.img} alt={s[lang].name} />
                 </div>
-                <span className="service-icon">{s[lang].icon}</span>
-                <h3 className="service-name">{s[lang].name}</h3>
-                <p className="service-desc">{s[lang].desc}</p>
-                <span className="service-rate">{s[lang].rate}</span>
+                <div className="service-card-body">
+                  <span className="service-icon">{s[lang].icon}</span>
+                  <h3 className="service-name">{s[lang].name}</h3>
+                  <p className="service-desc">{s[lang].desc}</p>
+                  <span className="service-rate">{s[lang].rate}</span>
+                </div>
               </div>
             ))}
             <div className="service-card featured reveal">
@@ -229,7 +254,7 @@ export default function Services() {
                 <p className="service-desc">
                   {t(
                     lang,
-                    "The flagship programme for clients who require a fully integrated approach. Combining Yoga, Pilates Mat, and Functional Training into one bespoke programme, managed by Suli personally. Sessions at your home, your company's dedicated space, or exclusive partner facilities throughout Barcelona. Available on a monthly retainer or intensive basis.",
+                    "The flagship programme for clients who require a fully integrated approach. Combining Yoga, Pilates Mat, and Functional Training into one bespoke programme, managed by Suli personally. Sessions at your home, your company's dedicated space, or exclusive partner facilities throughout Barcelona.",
                     "El programa insignia para clientes que necesitan un enfoque completamente integrado. Combina Yoga, Pilates Mat y Entrenamiento Funcional en un programa a medida, gestionado personalmente por Suli. Sesiones en tu domicilio, el espacio de tu empresa o instalaciones exclusivas en Barcelona.",
                   )}
                 </p>
@@ -247,7 +272,6 @@ export default function Services() {
                   alt="The POREOS Experience"
                   className="featured-photo"
                 />
-                <div className="featured-image-pattern" />
                 <div className="featured-image-text">POREOS</div>
               </div>
             </div>

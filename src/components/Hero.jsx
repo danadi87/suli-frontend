@@ -1,6 +1,6 @@
 import "../styles/Hero.css";
 import { useLang, t } from "../context/language.context.jsx";
-import heroPhoto from "../assets/PHOTO-2026-03-05-08-57-51.jpg";
+import heroPhoto from "../assets/suli-pt.png";
 
 export default function Hero() {
   const { lang } = useLang();

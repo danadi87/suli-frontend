@@ -123,8 +123,9 @@
 .discipline-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: 2px;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .discipline-input {
@@ -139,6 +140,10 @@
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 .discipline-card::before {
@@ -219,7 +224,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .routine-field-label {
@@ -305,9 +310,10 @@
 /* ── Dark tile group ── */
 .routine-tile-group {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .routine-tile-input {
@@ -315,11 +321,18 @@
 }
 
 .routine-tile-label {
-  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
   cursor: pointer;
   transition: all 0.2s;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 62px;
 }
 
 .routine-tile-label:hover {
@@ -337,11 +350,13 @@
   font-weight: 300;
   color: var(--cream);
   margin-bottom: 0.2rem;
+  line-height: 1.3;
 }
 
 .routine-tile-sub {
   font-size: 0.6rem;
   color: rgba(207, 187, 153, 0.5);
+  line-height: 1.3;
 }
 
 /* ── Intensity slider (visual only) ── */
@@ -408,7 +423,7 @@
 
 /* ── Section divider ── */
 .routine-section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .routine-section-title {
@@ -635,7 +650,7 @@
   font-weight: 300;
   color: rgba(250, 247, 242, 0.5);
   line-height: 2;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .routine-confirm-ref {
