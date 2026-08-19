@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "../styles/About.css";
 import { useLang, t } from "../context/language.context.jsx";
-import aboutPhoto from "../assets/gym-setup.jpeg";
+import aboutPhoto from "../assets/suli-pt.png";
 
 export default function About() {
   const { lang } = useLang();
