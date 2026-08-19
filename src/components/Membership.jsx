@@ -43,7 +43,6 @@ const PLANS = [
       badge: "Most Selected",
       features: [
         "8 private sessions across disciplines",
-        "Comprehensive biometric assessment",
         "Cross-modal programming (Yoga, Pilates, Functional)",
         "Priority scheduling & same-day availability",
         "Lifestyle & recovery protocol design",
@@ -58,7 +57,6 @@ const PLANS = [
       badge: "Más Elegido",
       features: [
         "8 sesiones privadas entre disciplinas",
-        "Valoración biométrica completa",
         "Programación multimodal (Yoga, Pilates, Funcional)",
         "Prioridad en agenda y disponibilidad el mismo día",
         "Diseño de protocolo de estilo de vida y recuperación",
