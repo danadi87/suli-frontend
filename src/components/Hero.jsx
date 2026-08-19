@@ -1,6 +1,5 @@
 import "../styles/Hero.css";
 import { useLang, t } from "../context/language.context.jsx";
-import heroPhoto from "../assets/suli-pt.png";
 import heroVideo from "../assets/quiet-wellness.mp4";
 
 export default function Hero() {
@@ -13,14 +12,7 @@ export default function Hero() {
       <div className="hero-grain" />
       <div className="hero-line" />
 
-      <video
-        className="hero-photo"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={heroPhoto}
-      >
+      <video className="hero-photo" autoPlay muted loop playsInline>
         <source src={heroVideo} type="video/mp4" />
       </video>
       <div className="hero-photo-overlay" />
