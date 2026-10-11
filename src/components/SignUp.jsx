@@ -67,10 +67,10 @@ export default function SignUp() {
 
   return (
     <div className="signup-page">
-      <div className="signup-bg-text">POREOS</div>
+      <div className="signup-bg-text">PÓREOS</div>
 
       <div className="signup-card">
-        <div className="signup-logo">POREOS</div>
+        <div className="signup-logo">PÓREOS</div>
         <div className="signup-subtitle">
           {t(lang, "Request Access", "Solicitar Acceso")}
         </div>

@@ -216,7 +216,7 @@ export default function TrainingRoutine() {
       <div className="routine-page">
         <nav className="routine-topbar">
           <Link to="/" className="routine-topbar-logo">
-            POREOS
+            PÓREOS
           </Link>
           <div className="routine-topbar-right">
             <span className="routine-topbar-label">
@@ -257,7 +257,7 @@ export default function TrainingRoutine() {
               )}
             </p>
             <div className="routine-confirm-ref">
-              {t(lang, "Reference", "Referencia")}: POREOS-RT-
+              {t(lang, "Reference", "Referencia")}: PÓREOS-RT-
               {Date.now().toString(36).toUpperCase().slice(-6)}
             </div>
             <Link
@@ -276,7 +276,7 @@ export default function TrainingRoutine() {
                 transition: "background 0.3s",
               }}
             >
-              {t(lang, "← Return to POREOS", "← Volver a POREOS")}
+              {t(lang, "← Return to PÓREOS", "← Volver a PÓREOS")}
             </Link>
           </div>
         </div>
@@ -1252,7 +1252,7 @@ export default function TrainingRoutine() {
     <div className="routine-page">
       <nav className="routine-topbar">
         <Link to="/" className="routine-topbar-logo">
-          POREOS
+          PÓREOS
         </Link>
         <div className="routine-topbar-right">
           <span className="routine-topbar-label">
