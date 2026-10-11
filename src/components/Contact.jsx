@@ -81,6 +81,13 @@ export default function Contact() {
                 valueEn: "Suli — 632 99 67 97",
                 valueEs: "Suli — 632 99 67 97",
               },
+              {
+                labelEn: "Email",
+                labelEs: "Email",
+                valueEn: "info@poreos.es",
+                valueEs: "info@poreos.es",
+                href: "mailto:info@poreos.es",
+              },
             ].map((item) => (
               <div key={item.labelEn} className="contact-item">
                 <span className="contact-item-label">
