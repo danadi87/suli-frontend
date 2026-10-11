@@ -100,10 +100,20 @@ export default function Contact() {
             ))}
           </div>
           <div className="contact-social">
-            <a href="#" className="social-link">
+            <a
+              href="https://www.instagram.com/poreos.es"
+              className="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Instagram
             </a>
-            <a href="#" className="social-link">
+            <a
+              href="https://www.linkedin.com/in/suli-a-4b4b0a269"
+              className="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn
             </a>
           </div>
