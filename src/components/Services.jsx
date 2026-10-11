@@ -157,8 +157,8 @@ export default function Services() {
             <p className="philosophy-intro reveal reveal-delay-2">
               {t(
                 lang,
-                "Every POREOS programme is built on the same intellectual foundation that governs world-class performance institutions — where precision, privacy, and progressive science are non-negotiable standards, not optional upgrades.",
-                "Cada programa de POREOS se construye sobre la misma base intelectual que rige las instituciones de rendimiento de clase mundial: donde la precisión, la privacidad y la ciencia progresiva son estándares innegociables, no mejoras opcionales.",
+                "Every PÓREOS programme is built on the same intellectual foundation that governs world-class performance institutions — where precision, privacy, and progressive science are non-negotiable standards, not optional upgrades.",
+                "Cada programa de PÓREOS se construye sobre la misma base intelectual que rige las instituciones de rendimiento de clase mundial: donde la precisión, la privacidad y la ciencia progresiva son estándares innegociables, no mejoras opcionales.",
               )}
             </p>
           </div>
@@ -240,7 +240,7 @@ export default function Services() {
                   {t(lang, "04 — Signature", "04 — Programa Insignia")}
                 </span>
                 <h3 className="service-name">
-                  {t(lang, "The POREOS Experience", "La Experiencia POREOS")}
+                  {t(lang, "The PÓREOS Experience", "La Experiencia PÓREOS")}
                 </h3>
                 <p className="service-desc">
                   {t(
@@ -260,10 +260,10 @@ export default function Services() {
               <div className="featured-image">
                 <img
                   src={imgPersonal}
-                  alt="The POREOS Experience"
+                  alt="The PÓREOS Experience"
                   className="featured-photo"
                 />
-                <div className="featured-image-text">POREOS</div>
+                <div className="featured-image-text">PÓREOS</div>
               </div>
             </div>
           </div>
