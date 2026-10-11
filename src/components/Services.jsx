@@ -1,19 +1,15 @@
 import { useEffect, useRef } from "react";
 import "../styles/Services.css";
 import { useLang, t } from "../context/language.context.jsx";
-import imgYoga from "../assets/yoga-mat.jpeg";
 import imgYogaEmpty from "../assets/yoga.jpeg";
 import imgPilates from "../assets/Untitled.jpg";
-import imgPilatesStudio from "../assets/pilates.jpeg";
 import imgFunctional from "../assets/home-gym.jpeg";
 import imgPersonal from "../assets/suli-yoga.png";
-import imgPersonal2 from "../assets/green-pilates.jpeg";
 import imgYogilates from "../assets/workout.jpeg";
 
 const PILLARS = [
   {
     n: "01",
-    img: imgYoga,
     en: {
       title: "Efficiency in Every Session",
       text: "Each step follows a specific logic. The training is organized in a coherent and consistent manner.",
@@ -25,7 +21,6 @@ const PILLARS = [
   },
   {
     n: "02",
-    img: imgPilatesStudio,
     en: {
       title: "Operational Excellence",
       text: "Every aspect of the service is designed to operate with precision and consistency. The standards are high, and the execution is always meticulous.",
@@ -37,7 +32,6 @@ const PILLARS = [
   },
   {
     n: "03",
-    img: imgPersonal2,
     en: {
       title: "Absolute Discretion",
       text: "Sessions take place at your residence, your company's dedicated space, or exclusive partner facilities in Barcelona. Your practice — and your results — remain entirely confidential.",
@@ -175,9 +169,6 @@ export default function Services() {
                 key={p.n}
                 className={`pillar reveal${i > 0 ? ` reveal-delay-${i}` : ""}`}
               >
-                <div className="pillar-photo">
-                  <img src={p.img} alt={p[lang].title} />
-                </div>
                 <div className="pillar-number">{p.n}</div>
                 <div className="pillar-title">{p[lang].title}</div>
                 <p className="pillar-text">{p[lang].text}</p>

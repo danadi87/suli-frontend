@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <nav id="navbar" className={`${scrolled || !isHome ? "scrolled" : ""}`}>
       <Link to="/" className="nav-logo">
-        POREOS
+        PÓREOS
       </Link>
       <ul className="nav-links">
         {links.map((l) => (

@@ -37,10 +37,10 @@ export default function Login() {
 
   return (
     <div className="login-page">
-      <div className="login-bg-text">POREOS</div>
+      <div className="login-bg-text">PÓREOS</div>
 
       <div className="login-card">
-        <div className="login-logo">POREOS</div>
+        <div className="login-logo">PÓREOS</div>
         <div className="login-subtitle">
           {t(lang, "Member Access", "Acceso de Miembro")}
         </div>

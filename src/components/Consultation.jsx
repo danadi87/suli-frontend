@@ -61,7 +61,7 @@ export default function Consultation() {
 
   return (
     <section className="consult" id="consult" ref={ref}>
-      <div className="consult-bg-text">POREOS</div>
+      <div className="consult-bg-text">PÓREOS</div>
       <div className="consult-inner reveal">
         <span
           className="section-label"

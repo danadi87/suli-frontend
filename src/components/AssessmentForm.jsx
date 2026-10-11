@@ -309,7 +309,7 @@ export default function AssessmentForm() {
       <div className="assessment-page">
         <nav className="assessment-topbar">
           <Link to="/" className="assessment-topbar-logo">
-            POREOS
+            PÓREOS
           </Link>
           <div className="assessment-topbar-right">
             <span className="assessment-topbar-label">
@@ -352,11 +352,11 @@ export default function AssessmentForm() {
               )}
             </p>
             <div className="confirmation-ref">
-              {t(lang, "Reference", "Referencia")}: POREOS-
+              {t(lang, "Reference", "Referencia")}: PÓREOS-
               {Date.now().toString(36).toUpperCase().slice(-6)}
             </div>
             <Link to="/" className="btn-return">
-              {t(lang, "← Return to POREOS", "← Volver a POREOS")}
+              {t(lang, "← Return to PÓREOS", "← Volver a PÓREOS")}
             </Link>
           </div>
         </div>
@@ -1349,7 +1349,7 @@ export default function AssessmentForm() {
     <div className="assessment-page">
       <nav className="assessment-topbar">
         <Link to="/" className="assessment-topbar-logo">
-          POREOS
+          PÓREOS
         </Link>
         <div className="assessment-topbar-right">
           <span className="assessment-topbar-label">

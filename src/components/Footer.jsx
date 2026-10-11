@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer>
       <span className="footer-copy">
-        © {new Date().getFullYear()} POREOS · Suli · Barcelona
+        © {new Date().getFullYear()} PÓREOS · Suli · Barcelona
       </span>
       <div className="footer-legal">
         <a href="#">{t(lang, "Privacy", "Privacidad")}</a>

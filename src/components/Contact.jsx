@@ -47,7 +47,7 @@ export default function Contact() {
     <section className="contact" id="contact">
       <div className="contact-inner">
         <div>
-          <div className="contact-brand">POREOS</div>
+          <div className="contact-brand">PÓREOS</div>
           <span className="contact-tagline">
             {t(
               lang,

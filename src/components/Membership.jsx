@@ -74,7 +74,7 @@ const PLANS = [
       note: "Monthly · 8 sessions · Quarterly programme design",
       features: [
         "8 private sessions monthly across all disciplines",
-        "Extended 90-minute POREOS assessment",
+        "Extended 90-minute PÓREOS assessment",
         "Quarterly programme architecture and full redesign",
         "Cross-modal progression: Yoga, Pilates & Functional",
         "Written protocol and personalised reference guide",
@@ -88,7 +88,7 @@ const PLANS = [
       note: "Mensual · 8 sesiones · Diseño trimestral del programa",
       features: [
         "8 sesiones privadas mensuales en todas las disciplinas",
-        "Valoración POREOS extendida de 90 minutos",
+        "Valoración PÓREOS extendida de 90 minutos",
         "Arquitectura trimestral del programa y rediseño completo",
         "Progresión multimodal: Yoga, Pilates y Funcional",
         "Protocolo escrito y guía de referencia personalizada",
